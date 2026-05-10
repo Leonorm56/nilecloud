@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/Leonorm56/NileChain" target="_blank">
-    <img src="https://raw.githubusercontent.com/Leonorm56/NileChain/main/apps/purrfect-farmer/src/assets/images/nilechain-logo.png" width="128" alt="NileChain Logo">
+    <img src="resources/images/nilechain-logo.png" width="128" alt="NileChain Logo">
   </a>
 </p>
 
