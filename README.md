@@ -42,17 +42,25 @@
 - **RAM:** Minimum 1GB (2GB+ recommended)
 - **Node.js** v18+ with pnpm
 
-### Install
+### One-Line Install
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/Leonorm56/nilecloud/main/install.sh)
+```
+
+### Manual Install
 
 ```bash
 git clone https://github.com/Leonorm56/nilecloud.git
 cd nilecloud
 pnpm install
 cp .env.example .env
-# Edit .env with your configuration
+nano .env   # Edit with your config
 pnpm db:migrate && pnpm db:seed
 pnpm start
 ```
+
+> **Note:** After installing, set the server IP as your **Cloud Server URL** in NileChain extension settings → Cloud Manager.
 
 ---
 

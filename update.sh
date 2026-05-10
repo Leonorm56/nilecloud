@@ -15,25 +15,23 @@ print_subheading() {
     echo -e "${YELLOW}$1${NC}"
 }
 
-print_heading "Updating Purrfect Farmer repository..."
+print_heading "Updating NileCloud..."
 git pull origin main
 
-print_heading "Installing project dependencies..."
+print_heading "Installing dependencies..."
 pnpm install
 
-print_heading "Running database migrations and seeders..."
-pnpm -F purrfect-fly db:migrate && pnpm -F purrfect-fly db:seed
+print_heading "Running database migrations..."
+pnpm db:migrate && pnpm db:seed
 
-# Check if --no-restart flag is provided
 if [[ "$*" != *"--no-restart"* ]]; then
-    print_heading "Restarting Purrfect Fly with PM2..."
-    pm2 restart apps/purrfect-fly/ecosystem.config.cjs --update-env
+    print_heading "Restarting NileCloud with PM2..."
+    pm2 restart ecosystem.config.cjs --update-env
     pm2 save
 else
     print_subheading "Skipping PM2 restart (--no-restart flag specified)"
 fi
 
-
-print_heading "Server Address"
-ip=$(curl ifconfig.me)
-print_subheading "You can access Purrfect Fly at: http://$ip"
+ip=$(curl -s ifconfig.me)
+print_heading "NileCloud updated!"
+print_subheading "Server: http://$ip"
